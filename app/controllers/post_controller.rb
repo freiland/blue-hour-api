@@ -1,9 +1,9 @@
 class PostController < ApplicationController
 
   def index
-    title = params[:title]
-    @post = Post.search(name)
-    json_respon se(@post)
+    author = params[:author]
+    @post = Post.search(author)
+    json_response(@post)
   end
 
   def paginate
