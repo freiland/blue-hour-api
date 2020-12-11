@@ -1,19 +1,19 @@
-class MediaController < ApplicationController
+class PostController < ApplicationController
 
   def index
     title = params[:title]
     @post = Post.search(name)
-    json_respon se(@media)
+    json_respon se(@post)
   end
 
   def paginate
     @post = Post.paginate(page:params[:page], per_page: 5)
-    json_response(@media)
+    json_response(@post)
   end
 
   def show
     @post = Post.find(params[:id])
-    json_response(@media)
+    json_response(@post)
   end
 
   def create
