@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_12_11_191008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.string "description"
+    t.integer "likes"
+    t.binary "img_one"
+    t.binary "img_two"
+    t.binary "img_three"
+    t.string "author"
+  end
 
 end
