@@ -2,33 +2,33 @@ class MediaController < ApplicationController
 
   def index
     title = params[:title]
-    @media = Media.search(name)
+    @post = Post.search(name)
     json_respon se(@media)
   end
 
   def paginate
-    @media = Media.paginate(page:params[:page], per_page: 5)
+    @post = Post.paginate(page:params[:page], per_page: 5)
     json_response(@media)
   end
 
   def show
-    @meida = Media.find(params[:id])
+    @post = Post.find(params[:id])
     json_response(@media)
   end
 
   def create
-    @media = Media.create!(media_params)
-    json_response(@media, :created)
+    @post = Post.create!(media_params)
+    json_response(@post, :created)
   end
 
   def random
-    @media = Media.all.sample
-    json_response(@media)
+    @post = Post.all.sample
+    json_response(@post)
   end
 
   def update
-    @media = Media.find(params[:id])
-    if @media.update!(media_params)
+    @post = Post.find(params[:id])
+    if @post.update!(media_params)
       render status: 200, json: {
      message: "You've updated your post"
      }
@@ -36,8 +36,8 @@ class MediaController < ApplicationController
   end
 
   def destroy
-    @media = Media.find(params[:id])
-    if @media.destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
       render status: 200, json: {
         message: "you've sucessfully deleted your post"
       }
@@ -47,6 +47,6 @@ class MediaController < ApplicationController
   private
 
   def media_params
-    params.permit(:title, author)
+    params.permit(:description, :author, :likes)
   end
 end
