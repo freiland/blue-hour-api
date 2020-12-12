@@ -7,7 +7,7 @@ class PostController < ApplicationController
 
   def paginate
     @post = Post.paginate(page:params[:page], per_page: 5)
-    json_response(@post)
+    
   end
 
   def show
