@@ -10,9 +10,13 @@ _11 December 2020_
 
 _This API will provide the back-end for a photo-sharing webpage. The front-end will be created using React to create a responsive, single-page feed that loads content. My inspiration for this project is to create a dynamic page for photojournalism around the world._
 
-The Rails API will handle creating user with a gem called doorkeeper which uses Oauth. The database will have a posts table which holds a description of the post, the like counter, up to three images and an author. There will also be a seperate postgreSQL table called tags. The tages table will just have an id and a tag. These two tables will have a many-to-many relationship, meaning a single post can have many tages, and a tag can have many attached posts_
+_The Rails API will handle creating user with a gem called doorkeeper which uses Oauth. The database will have a posts table which holds a description of the post, the like counter, up to three images and an author. There will also be a seperate postgreSQL table called tags. The tages table will just have an id and a tag. These two tables will have a many-to-many relationship, meaning a single post can have many tages, and a tag can have many attached posts_
 
-_
+_A user will be able to POST a 'post' to the API if they have created an account and logged in. They will also be able to like other posts if they are logged in. If someone visits the page without logging in then they will be able to view the feed, and alter which tages they see, but they won't be able to like content or add content to the site._
+
+_If I have the time, I would like to organize my API so that it returns posts by how many likes that they have. The number of likes will not be displayed on a post, but the posts with the most number of likes will be displayed at the top of the feed. In addition to sorting the content by likes I would like to have a feature where content is sorted by how recenty it has been uploaded to the site and/hour the date the photo was taken._
+
+
 
 ## API Call Documentation
 
@@ -50,11 +54,11 @@ _
 * Run `rspec` in your command line to run test specifications. 
 * Running the server: Run `rails s` in the terminal. This will start a server, which you can access by entering `localhost:3000` in your browser.
 
-## Further Exploration
+<!-- ## Further Exploration
 
 This app uses the gem 'will_paginate' to paginate results from an API call. Instead of all results matching the call being displayed at once to user, pagination displays a specified number of results. For this exercise, I have the pagination returning 5 results.
 
-To view the paginated results navigate to localhost:3000/paginate. To navigate to the next page of paginated results go to localhost:3000/paginate?page=2 or localhost:3000/paginate?page=3.
+To view the paginated results navigate to localhost:3000/paginate. To navigate to the next page of paginated results go to localhost:3000/paginate?page=2 or localhost:3000/paginate?page=3. -->
 
 
 
